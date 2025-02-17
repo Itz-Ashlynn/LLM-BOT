@@ -1,4 +1,4 @@
-```markdown
+
 # 🚀 Deploy Telegram AI Bot on Cloudflare Workers
 
 This guide provides step-by-step instructions to deploy a Telegram AI chatbot on Cloudflare Workers using AR's API.
@@ -68,9 +68,6 @@ If you encounter issues, check:
 - Ensure your **Cloudflare Worker** is deployed and accessible
 - Verify your **KV Namespace binding**
 - Use Cloudflare logs for debugging:
-  ```sh
-  wrangler tail
-  ```
 
 ---
 

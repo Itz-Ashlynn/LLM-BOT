@@ -29,9 +29,9 @@ Before proceeding with the deployment, ensure you have the following:
 
 ---
 
-## 📌 Step 3: Configure Environment Variables
+## 📌 Step 3: Configure Variables
 
-Define the required environment variables in your Cloudflare Worker:
+Define the required variables in your Cloudflare Worker:
 
 ```env
 TELEGRAM_TOKEN=your-bot-token

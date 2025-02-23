@@ -1,55 +1,66 @@
+# 🚀 Deploying a Telegram AI Bot on Cloudflare Workers
 
-# 🚀 Deploy Telegram AI Bot on Cloudflare Workers
-
-This guide provides step-by-step instructions to deploy a Telegram AI chatbot on Cloudflare Workers using AR's API.
+This guide provides a comprehensive step-by-step approach to deploying a Telegram AI chatbot using Cloudflare Workers and AR's API.
 
 ---
 
 ## 📌 Prerequisites
-Before proceeding, ensure you have the following:
-- **Telegram Bot Token** from [@BotFather](https://t.me/BotFather)
-- **Cloudflare Account** with Workers enabled
-- **Cloudflare KV Namespace** for storing messages
+Before proceeding with the deployment, ensure you have the following:
+
+- **Telegram Bot Token** – Obtain it from @BotFather: https://t.me/BotFather
+- **Cloudflare Account** – Cloudflare Workers should be enabled.
+- **Cloudflare KV Namespace** – Used for storing messages persistently.
 
 ---
 
 ## 📌 Step 1: Create a Cloudflare Worker
-1. Go to [Cloudflare Workers](https://workers.cloudflare.com/)
-2. Click **Create Application** → **Create a Worker**
-3. Replace the default code with Worker.js JavaScript code
+
+1. Navigate to Cloudflare Workers: https://workers.cloudflare.com/
+2. Click on **Create Application** → **Create a Worker**.
+3. Replace the default script with your `Worker.js` JavaScript code.
 
 ---
 
 ## 📌 Step 2: Set Up KV Namespace
-1. In the Cloudflare dashboard, navigate to **Workers & Pages** → **KV**
-2. Click **Create a Namespace** and name it `MESSAGES`
-3. Copy the binding name and add it to your Worker under **Variables**
+
+1. In the Cloudflare dashboard, go to **Workers & Pages** → **KV**.
+2. Click **Create a Namespace** and name it `MESSAGES`.
+3. Copy the binding name and link it to your Worker under **Variables**.
 
 ---
 
 ## 📌 Step 3: Configure Environment Variables
-Set up the required environment variables in your Worker:
+
+Define the required environment variables in your Cloudflare Worker:
+
 ```env
 TELEGRAM_TOKEN=your-bot-token
 TELEGRAM_SECRET=ashlynn-repo
-OPENAI_API_URL=https://api-y5s2.onrender.com/v1/chat/api
-OPENAI_MODEL=llama-3.3-70b
+OPENAI_API_URL=https://api-y5s2.onrender.com/v2/chat/api
+OPENAI_MODEL=llama
 ```
+
+Ensure these variables are correctly set in the Cloudflare Worker settings under **Variables**.
 
 ---
 
 ## 📌 Step 4: Deploy Your Worker
-1. Click **Save and Deploy**
-2. Copy the deployed worker URL (e.g., `https://your-worker-name.workers.dev`)
+
+1. Click **Save and Deploy** in the Cloudflare Worker dashboard.
+2. After deployment, copy the Worker’s URL (e.g., `https://your-worker-name.workers.dev`).
 
 ---
 
 ## 📌 Step 5: Register the Webhook
-Run the following command to register the webhook:
+
+To connect your bot with Telegram, register the webhook using the following command:
+
 ```sh
 curl -X POST "https://your-worker-name.workers.dev/registerWebhook"
 ```
-To unregister the webhook, run:
+
+To unregister the webhook, use:
+
 ```sh
 curl -X POST "https://your-worker-name.workers.dev/unRegisterWebhook"
 ```
@@ -57,23 +68,29 @@ curl -X POST "https://your-worker-name.workers.dev/unRegisterWebhook"
 ---
 
 ## 📌 Step 6: Test Your Bot
-1. Open Telegram and send `/start` to your bot
-2. Ensure it responds correctly
-3. If the bot does not respond, check the logs
+
+1. Open Telegram and send `/start` to your bot.
+2. Verify that the bot responds correctly.
+3. If the bot does not respond, review logs for debugging.
 
 ---
 
 ## ✅ Troubleshooting
-If you encounter issues, check:
-- Ensure your **Cloudflare Worker** is deployed and accessible
-- Verify your **KV Namespace binding**
-- Use Cloudflare logs for debugging:
+If you encounter any issues, check the following:
+
+- Ensure the **Cloudflare Worker** is properly deployed and accessible.
+- Verify the **KV Namespace binding** is correctly configured.
+- Use Cloudflare logs for debugging and error tracking.
+
+To check logs:
+- Navigate to the **Workers & Pages** section in the Cloudflare dashboard.
+- Select your Worker and open the **Logs** tab.
 
 ---
 
 ## 🎉 Created By
-This bot was created for the **Ashlynn Repository**. Join for more updates: [Ashlynn Repository](https://t.me/Ashlynn_Repository)
+This bot was developed for the **Ashlynn Repository**. For more updates and support, join:
 
-Happy Coding! 🚀
-```
+📢 Ashlynn Repository: https://t.me/Ashlynn_Repository
 
+Happy coding! 🚀
